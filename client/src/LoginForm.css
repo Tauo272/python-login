@@ -1,23 +1,20 @@
-body{
-    margin: 0%;
+.padre{
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.padreLog{
+    
     border-radius: 15px;
     box-shadow: 1px 1px 10px 1px;
 }
-input{
+.inputLog{
     padding: 5px;
     margin: 5px 10px;
     background-color: white;
 }
-form{
+.formLog{
     padding: 10px;
     display: flex;
     flex-direction: column;

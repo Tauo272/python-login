@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Artifika&display=swap');
+.barra{
+    display: flex;
+    justify-content: space-between;
+    font-family: "Artifika", serif;
+    font-style: normal;
+    height: auto;
+    background-color: #E3D9C6;
+    margin-bottom: 40px;
+}
+.barra p{
+    margin: 0;
+    padding: 0%;
+}
+.barra1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    font-size: 22px;
+}
+.barra1 a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 18px;
+    transition: background-color 300ms ease;
+}
+.barra1 a:hover{
+    background-color: #d5c8b2;
+}
