@@ -21,10 +21,16 @@ def login():
 
 @app.route("/singin", methods=["POST"])
 def singin():
-    query = request.get_json()
-    components = tuple(query[i] for i in query)
-    mysqlRequest = "select  "
-    print(components)
-    return(jsonify({"object" : components}))
+    try:
+        query = request.get_json()
+        mysqlRequest = "select password from users where gmail = %s"
+        cursor.execute(mysqlRequest, (query["gmail"],))
+        if cursor.fetchone()[0] == query["password"]:
+            return(jsonify({ "idenfyer" : 1 })),200
+        else:
+            return(jsonify({ "identifyer" : 0 })),200
+    except Error as e:
+        return(jsonify({ "error" : "no se pudo encontrar el usuario" })),500
 
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)

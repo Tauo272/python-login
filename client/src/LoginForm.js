@@ -4,6 +4,7 @@ import { context } from "./App";
 
 function LoginForm(){
     const {view, setView} = useContext(context);
+    const [responseStatus, setResponseStatus] = useState("");
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [gmail, setGmail] = useState("");
@@ -19,13 +20,15 @@ function LoginForm(){
                 "gmail":gmail,
                 "age":age
             })
-        });
+        })
+        .then(res => (setResponseStatus(res.status === 500 ? "ese usuario ya esta registrado" : "")))
     }
     return(
         <>
         <button onClick={() => {setView(0)}}>atras</button>
         <div className="padre">
             <div className="padreLog">
+                <p className="inputLog">{responseStatus}</p>
                 <form onSubmit={preventEvent} className="formLog">
                     <input className="inputLog" onChange={(e) => setName(e.target.value)} placeholder="Name"></input>
                     <input className="inputLog" onChange={(e) => setPassword(e.target.value)} placeholder="Password"></input>
